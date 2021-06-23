@@ -38,3 +38,4 @@ class LocalStorage {
     return listTasks[listTasks.length - 1].index;
   }
 };
+

@@ -8,6 +8,26 @@ class Task {
     this.value = value;
   }
 
+   removeOnlyTask() {
+     const containerRemove = document.createElement('div');
+     containerRemove.id = ('nameDiv')
+     const buttonRemove = document.createElement('button');
+     let x = buttonRemove.parentElement;
+     buttonRemove.onclick = console.log(x);
+    //  const render = document.getElementById('remove');
+    //  render.appendChild(containerRemove);
+     containerRemove.appendChild(buttonRemove);
+     return containerRemove;
+   }
+
+   renderDomTest() {
+    const task = document.createElement('div');
+    const boton = this.removeOnlyTask();
+    task.appendChild(boton);
+    return task;
+   }
+
+
   renderDOMTask () {
     // Crear elementos del producto
     const task = document.createElement('div');
