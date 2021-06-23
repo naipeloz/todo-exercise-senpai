@@ -34,7 +34,7 @@ class LocalStorage {
   removeTaskById(id) {
     const tasks = this.getList();
     const idItem = tasks.findIndex((item) => item.index === id);
-    tasks.splice(idItem, 1);
+    tasks[idItem].isRemoved = false;
     localStorage.setItem(this.STORAGE_NAME, JSON.stringify(tasks));  
   }
 
