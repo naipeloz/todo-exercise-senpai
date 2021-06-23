@@ -19,6 +19,7 @@ class LocalStorage {
     const tasks = this.getList();
     const objectTasks = tasks.map((item) => new Task(item.index, item.date, item.tittle, item.value, item.priority, item.isRemoved));
     return objectTasks.filter((item) => !item.isRemoved);
+     
   }
 
   getTaskByPriority(priority) {
@@ -28,13 +29,28 @@ class LocalStorage {
   }
 
   removeAllTasks() {
-    localStorage.clear();
+    const tasks = this.getList();
+    tasks.forEach(element => {
+      element.isRemoved = true;
+    });
+    localStorage.setItem(this.STORAGE_NAME, JSON.stringify(tasks));  
   }
 
   removeTaskById(id) {
     const tasks = this.getList();
     const idItem = tasks.findIndex((item) => item.index === id);
-    tasks[idItem].isRemoved = false;
+    tasks[idItem].isRemoved = true;
+    localStorage.setItem(this.STORAGE_NAME, JSON.stringify(tasks));  
+  }
+
+  removeAllTaskFisic(){
+     localStorage.clear(); 
+  }
+
+  removeTaskByIdFisic(id) {
+    const tasks = this.getList();
+    const idItem = tasks.findIndex((item) => item.index === id);
+    tasks.splice(idItem,true); 
     localStorage.setItem(this.STORAGE_NAME, JSON.stringify(tasks));  
   }
 
