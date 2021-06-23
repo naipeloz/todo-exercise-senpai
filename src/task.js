@@ -6,6 +6,7 @@ class Task {
     this.priority = priority;
     this.tittle = tittle;
     this.value = value;
+    this.isRemoved = false;
   }
 
   renderDOMTask () {
