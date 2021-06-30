@@ -16,6 +16,15 @@ class LocalStorage {
   }
 
   getAllTasks() {
+
+    
+
+
+
+
+
+
+
     const tasks = this.getList();
     const objectTasks = tasks.map((item) => new Task(item.index, item.date, item.tittle, item.value, item.priority, item.isRemoved));
     return objectTasks.filter((item) => !item.isRemoved);
